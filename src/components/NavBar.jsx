@@ -21,6 +21,7 @@ const NavBar = () => {
         <div className="flex items-center gap-6">
           <ul className="flex items-center font-medium gap-8 cursor-pointer ">
             <li><Link href={'/'}>Home</Link></li>
+            <li><Link href={'/blog'}>All Post</Link></li>
             <li><Link href={'/profile'}>Profile</Link></li>
           </ul>
           <div className="">
