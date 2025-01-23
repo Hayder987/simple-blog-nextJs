@@ -4,7 +4,7 @@ import React from "react";
 
 const NavBar = () => {
   return (
-    <div className="bg-slate-100 mb-10">
+    <div className="bg-slate-100 sticky z-10 top-0 mb-10">
       <nav className="container px-2 flex justify-between items-center py-3 mx-auto">
         {/* logo */}
         <div className="flex items-center gap-3">
@@ -15,11 +15,11 @@ const NavBar = () => {
             height={70}
             className="rounded-full"
           ></Image>
-          <h1 className="text-base md:text-2xl font-bold ">My Blog</h1>
+          <h1 className="text-base hidden md:block md:text-2xl font-bold ">My Blog</h1>
         </div>
         {/* navMenu */}
         <div className="flex items-center gap-6">
-          <ul className="flex items-center font-medium gap-8 cursor-pointer ">
+          <ul className="flex items-center font-medium gap-4 flex-wrap md:gap-8 cursor-pointer ">
             <li><Link href={'/'}>Home</Link></li>
             <li><Link href={'/blog'}>All Post</Link></li>
             <li><Link href={'/profile'}>Profile</Link></li>

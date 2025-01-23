@@ -12,7 +12,7 @@ const BlogPost = async () => {
         <ul className="text-xl text-center flex flex-col gap-3 cursor-pointer font-semibold">
           {blogData.slice(0, 30).map((blog) => (
             <li key={blog.id} className="hover:text-blue-600 hover:underline">
-              {blog?.title}
+              <Link href={`/blog/${blog?.id}`}>{blog?.title}</Link>
             </li>
           ))}
         </ul>
