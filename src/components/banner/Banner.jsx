@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Banner = () => {
   return (
-    <div className="flex px-2 flex-col-reverse container mx-auto lg:flex-row gap-10">
+    <div className="flex px-2 mb-24 flex-col-reverse container mx-auto lg:flex-row gap-10">
       {/* text */}
       <div className="lg:w-1/2 flex items-center ">
         <div className="">

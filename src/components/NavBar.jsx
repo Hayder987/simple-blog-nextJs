@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const NavBar = () => {
@@ -19,8 +20,8 @@ const NavBar = () => {
         {/* navMenu */}
         <div className="flex items-center gap-6">
           <ul className="flex items-center font-medium gap-8 cursor-pointer ">
-            <li>Home</li>
-            <li>Profile</li>
+            <li><Link href={'/'}>Home</Link></li>
+            <li><Link href={'/profile'}>Profile</Link></li>
           </ul>
           <div className="">
           <button className="border-gray-700 duration-300 hover:bg-gray-950 hover:text-gray-100 font-semibold border py-1 px-4">Login</button>

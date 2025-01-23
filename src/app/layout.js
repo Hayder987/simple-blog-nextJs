@@ -14,22 +14,27 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "My Blog",
+  title: "Home",
   description: "Simple blog with next.js",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/logo.ico" type="image/png" />
+        <title>My Blog</title>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NavBar></NavBar>
+        <NavBar />
         <main className="min-h-[calc(100vh-80px)]">
-        {children}
+          {children}
         </main>
-        <Footer></Footer>
+        <Footer />
       </body>
     </html>
   );
 }
+
