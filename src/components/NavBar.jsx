@@ -1,13 +1,14 @@
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import LoginBtn from "./utilities/LoginBtn";
 import LogoutBtn from "./utilities/LogoutBtn";
+import { getUser } from "@/lib/getUser";
 
 const NavBar = async () => {
-  const { getUser } = getKindeServerSession();
-  const user = await getUser();
+  
+  const [user] = await getUser();
   console.log(user);
   return (
     <div className="bg-slate-100 sticky z-10 top-0 mb-10">
@@ -35,7 +36,7 @@ const NavBar = async () => {
               <Link href={"/blog"}>All Post</Link>
             </li>
             <li>
-              <Link href={"/profile"}>Profile</Link>
+              <Link href={user?"/profile":'/api/auth/login'}>Profile</Link>
             </li>
           </ul>
           <div className="">
