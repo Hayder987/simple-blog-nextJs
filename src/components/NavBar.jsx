@@ -1,8 +1,14 @@
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import LoginBtn from "./utilities/LoginBtn";
+import LogoutBtn from "./utilities/LogoutBtn";
 
-const NavBar = () => {
+const NavBar = async () => {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
+  console.log(user);
   return (
     <div className="bg-slate-100 sticky z-10 top-0 mb-10">
       <nav className="container px-2 flex justify-between items-center py-3 mx-auto">
@@ -15,18 +21,33 @@ const NavBar = () => {
             height={70}
             className="rounded-full"
           ></Image>
-          <h1 className="text-base hidden md:block md:text-2xl font-bold ">My Blog</h1>
+          <h1 className="text-base hidden md:block md:text-2xl font-bold ">
+            My Blog
+          </h1>
         </div>
         {/* navMenu */}
         <div className="flex items-center gap-6">
           <ul className="flex items-center font-medium gap-4 flex-wrap md:gap-8 cursor-pointer ">
-            <li><Link href={'/'}>Home</Link></li>
-            <li><Link href={'/blog'}>All Post</Link></li>
-            <li><Link href={'/profile'}>Profile</Link></li>
+            <li>
+              <Link href={"/"}>Home</Link>
+            </li>
+            <li>
+              <Link href={"/blog"}>All Post</Link>
+            </li>
+            <li>
+              <Link href={"/profile"}>Profile</Link>
+            </li>
           </ul>
           <div className="">
-          <button className="border-gray-700 duration-300 hover:bg-gray-950 hover:text-gray-100 font-semibold border py-1 px-4">Login</button>
-          <button className="border-gray-700 duration-300 hover:bg-gray-950 hover:text-gray-100 font-semibold border py-1 px-4">Logout</button>
+            {user ? (
+              <Link href={`/api/auth/logout`}>
+                <LogoutBtn></LogoutBtn>
+              </Link>
+            ) : (
+              <Link href={"/api/auth/login"}>
+                <LoginBtn></LoginBtn>
+              </Link>
+            )}
           </div>
         </div>
       </nav>
