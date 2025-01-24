@@ -1,6 +1,6 @@
 # My Blog
 
-![My Blog Banner](public/banner.png)
+![My Blog Banner](public/logo.png)
 
 Welcome to **My Blog**, a modern blogging platform built with Next.js. This project allows users to read, write, and manage their blog posts with seamless authentication using Kinde.
 
