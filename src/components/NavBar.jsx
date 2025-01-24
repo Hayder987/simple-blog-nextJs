@@ -4,12 +4,13 @@ import Link from "next/link";
 import React from "react";
 import LoginBtn from "./utilities/LoginBtn";
 import LogoutBtn from "./utilities/LogoutBtn";
-import { getUser } from "@/lib/getUser";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 const NavBar = async () => {
-  
-  const [user] = await getUser();
-  console.log(user);
+  const { isAuthenticated, getUser } = getKindeServerSession();
+  const isUserAuthenticated = await isAuthenticated();
+  const user = await getUser();
+
   return (
     <div className="bg-slate-100 sticky z-10 top-0 mb-10">
       <nav className="container px-2 flex justify-between items-center py-3 mx-auto">
@@ -40,14 +41,11 @@ const NavBar = async () => {
             </li>
           </ul>
           <div className="">
-            {user ? (
-              <Link href={`/api/auth/logout`}>
-                <LogoutBtn></LogoutBtn>
-              </Link>
+            {user && isUserAuthenticated ? (
+              <LogoutBtn></LogoutBtn>
+              
             ) : (
-              <Link href={"/api/auth/login"}>
-                <LoginBtn></LoginBtn>
-              </Link>
+              <LoginBtn></LoginBtn>  
             )}
           </div>
         </div>
