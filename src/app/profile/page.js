@@ -11,8 +11,7 @@ export default async function profilePage() {
   const [user] = await getUser()
   return (
     <div className="container py-10 mx-auto">
-       <h1 className="text-center text-2xl md:text-4xl mb-6 font-bold">Welcome {user?.given_name} {user?.family_name}</h1>
-       <p className="text-xl md:text-2xl text-center mb-16 font-semibold text-gray-600">Email: {user?.email}</p>
+       <h1 className="text-center text-2xl md:text-4xl mb-6 font-bold">Welcome Your Profile!</h1>      
        <div className="flex justify-center items-center">
        <Link href={'/api/auth/logout'}>
        <LogoutBtn></LogoutBtn>
